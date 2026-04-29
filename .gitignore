@@ -1,0 +1,12 @@
+.DS_Store
+**/.DS_Store
+
+# Vim local files
+vim/.vim/.netrwhist
+vim/.vim/plugged/
+vim/.vim/autoload/
+vim/.vim/*.py
+
+# Zsh plugin files
+zsh/.config/.zsh/plugins/*
+!zsh/.config/.zsh/plugins/.gitkeep

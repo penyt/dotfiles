@@ -1,0 +1,37 @@
+theme = "my_gruvbox"
+
+[editor]
+scrolloff = 3
+line-number = "relative"
+mouse = true
+bufferline = "multiple"
+end-of-line-diagnostics = "hint"
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name", "file-modification-indicator", "read-only-indicator"]
+right = ["diagnostics", "selections", "separator", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+diagnostics = ["warning", "error"]
+workspace-diagnostics = ["warning", "error"]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+character = "┊" # Some characters that work well: "▏", "┆", "┊"
+
+[editor.lsp]
+display-color-swatches = true
+
+# ========= keys =========
+[keys.normal.space]
+w = ":w"
+q = ":q"

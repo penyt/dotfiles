@@ -1,0 +1,10 @@
+# ~/.config/helix/themes/my_gruvbox.toml
+# https://github.com/helix-editor/helix/blob/master/runtime/themes/gruvbox.toml
+
+inherits = "gruvbox"
+
+"ui.statusline.normal" = { fg = "blue1", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "magenta", modifiers = ["bold"] }
+
+"ui.statusline.separator" = { fg = "gray" }
