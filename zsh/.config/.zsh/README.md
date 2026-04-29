@@ -8,3 +8,12 @@ export MYCFG="$HOME/.config"
 [[ -f "$MYCFG/.zsh/aliases.zsh" ]] && source "$MYCFG/.zsh/aliases.zsh"
 # END OF SOURCE
 ```
+
+
+At the bottom of the `~/.zshrc`, add:
+
+```shell
+[[ -r "$MYCFG/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] &&
+  source "$MYCFG/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+```
+

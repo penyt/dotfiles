@@ -12,10 +12,11 @@ setopt hist_ignore_dups
 setopt hist_verify
 
 # ======= PLUGINS =======
-# zsh-autosuggestions & zsh-syntax-highlighting
+# zsh-autosuggestions & zsh-syntax-highlighting & zsh-completions
 [[ -r "$MYCFG/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] &&
   source "$MYCFG/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
+# Actually no need here. Already added in the bottom of ~/.zshrc
 [[ -r "$MYCFG/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] &&
   source "$MYCFG/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
@@ -30,7 +31,7 @@ fi
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
-_comp_options+=(globdots)
+_comp_options+=(globdots) # include hidden files in completion
 
 
 # make fzf work properly 
@@ -40,3 +41,4 @@ fi
 
 # Common usage
 export PATH="$HOME/.local/bin:$PATH"
+

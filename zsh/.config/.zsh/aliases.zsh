@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # Here are aliases define by myself
 # docker
-alias dps='docker ps --format="\nNAME 【{{.Names}}】\n - STATUS   {{.Status}}\n - IMAGE    {{.Image}}\n - 容器ID　  {{.ID}}\n - COMMAND  {{.Command}}\n - CREATED  {{.CreatedAt}}\n - PORTS    {{.Ports}}" '
+alias dps='docker ps --format="\nNAME 【{{.Names}}】\n - STATUS   {{.Status}}\n - IMAGE    {{.Image}}\n - ID　  {{.ID}}\n - COMMAND  {{.Command}}\n - CREATED  {{.CreatedAt}}\n - PORTS    {{.Ports}}" '
 alias dup='docker compose up -d'
 alias dup-re='docker compose up -d --force-recreate'
 # get inside the container
@@ -32,7 +32,6 @@ else
 fi
 alias lss='command ls'
 
-alias pen='glow pen.md'
 alias t='tmux new -s 1'
 alias tls='tmux ls'
 alias tk='tmux kill-server'
