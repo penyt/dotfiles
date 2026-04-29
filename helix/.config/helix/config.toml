@@ -1,3 +1,5 @@
+# Docs: https://docs.helix-editor.com/
+
 theme = "my_gruvbox"
 
 [editor]
@@ -9,7 +11,7 @@ end-of-line-diagnostics = "hint"
 color-modes = true
 
 [editor.statusline]
-left = ["mode", "spinner"]
+left = ["mode", "spinner", "file-base-name"]
 center = ["file-name", "file-modification-indicator", "read-only-indicator"]
 right = ["diagnostics", "selections", "separator", "position", "file-encoding", "file-line-ending", "file-type"]
 separator = "│"
@@ -35,3 +37,4 @@ display-color-swatches = true
 [keys.normal.space]
 w = ":w"
 q = ":q"
+x = ":buffer-close"
