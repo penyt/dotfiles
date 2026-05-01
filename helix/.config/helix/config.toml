@@ -30,6 +30,8 @@ select = "underline"
 render = true
 character = "┊" # Some characters that work well: "▏", "┆", "┊"
 
+
+
 [editor.lsp]
 display-color-swatches = true
 

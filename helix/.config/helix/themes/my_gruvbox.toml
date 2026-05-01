@@ -8,3 +8,5 @@ inherits = "gruvbox"
 "ui.statusline.select" = { fg = "magenta", modifiers = ["bold"] }
 
 "ui.statusline.separator" = { fg = "gray" }
+
+"ui.background" = {}

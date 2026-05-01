@@ -43,6 +43,7 @@ alias z='zed . '
 alias f='fresh . '
 alias utm='utmctl'
 alias ts='tailscale'
+alias hxc='hx ~/.config/helix'
 
 brew-list() {
   echo "brew list --installed-as-dependency"

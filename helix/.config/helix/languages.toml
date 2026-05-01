@@ -1,0 +1,8 @@
+# ~/.config/helix/languages.toml
+
+[[language]]
+name = "yaml"
+language-servers = ["yaml-language-server"]
+file-types = ["yaml", "yml"]
+
+
