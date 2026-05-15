@@ -4,6 +4,7 @@
 autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
 
+
 " Basics
 filetype plugin indent on
 set showmatch  " check )]} matching
@@ -16,6 +17,7 @@ set timeoutlen=300
 set ttimeoutlen=10
 set clipboard=unnamed " copy to OS clipboard
 set hidden
+set whichwrap+=h,l,<,>,[,] " go to next/prev line by h/j or <-/->
 
 " Cursor
 "  Reference chart of values:

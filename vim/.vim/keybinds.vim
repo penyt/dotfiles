@@ -7,6 +7,11 @@ let mapleader = " "
 nnoremap <leader>b :Ex<CR>
 nnoremap <leader>op :Lexplore<CR>
 
+" Write & Save
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+
+
 " Reload vimrc 
 nnoremap <leader>rl :source ~/.vimrc<CR>
 
