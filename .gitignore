@@ -6,7 +6,6 @@ nvim/
 # Vim local files
 vim/.vim/.netrwhist
 vim/.vim/plugged/
-vim/.vim/autoload/
 vim/.vim/*.py
 
 # Zsh plugin files

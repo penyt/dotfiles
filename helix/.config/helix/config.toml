@@ -6,7 +6,7 @@ theme = "my_gruvbox"
 scrolloff = 3
 line-number = "relative"
 mouse = true
-bufferline = "multiple"
+bufferline = "always" # "multiple"
 end-of-line-diagnostics = "hint"
 color-modes = true
 

@@ -22,6 +22,7 @@ alias seeport='sudo lsof -i -P -n && echo -e "\n ▰▰▰▰▰▰ COMMAND: sud
 alias so="source ~/.zshrc"
 alias bat="bat --paging=never"
 alias fbat="fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 vim"
+alias con="container"
 
 if command -v eza >/dev/null 2>&1; then
   alias ls='eza -l'
@@ -38,7 +39,7 @@ alias tk='tmux kill-server'
 alias topdf='soffice --headless --convert-to pdf'
 alias gp='git push'
 alias gb='git branch'
-alias c='code . '
+alias c='clear'
 alias z='zed . '
 alias f='fresh . '
 alias utm='utmctl'
@@ -49,6 +50,7 @@ brew-list() {
   echo "brew list --installed-as-dependency"
   echo "brew list --installed-on-request"
   echo "brew list --cask"
+  echo "brew deps --tree <package>"
   echo "brew uses --installed APP"
 }
 
