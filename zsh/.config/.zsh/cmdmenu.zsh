@@ -40,13 +40,13 @@ cmdmenu() {
       }
     ' "$file" |
     fzf \
-      --height 40% \
+      --height 50% \
       --layout=reverse \
       --border \
       --prompt="cmd > " \
       --delimiter=$'\t' \
       --with-nth=1 \
-      --preview='printf "%b\n" {2}' \
+      --preview='if command -v bat >/dev/null 2>&1; then printf "%b\n" {2} | bat --language=sh --style=plain --color=always --paging=never; else printf "%b\n" {2}; fi' \
       --preview-window=down:6:wrap
   ) || return
 
@@ -104,13 +104,13 @@ cmdmenu() {
       }
     ' "$file" |
     fzf \
-      --height 40% \
+      --height 50% \
       --layout=reverse \
       --border \
       --prompt="$category > " \
       --delimiter=$'\t' \
       --with-nth=1 \
-      --preview='printf "%b\n" {2}' \
+      --preview='if command -v bat >/dev/null 2>&1; then printf "%b\n" {2} | bat --language=sh --style=plain --color=always --paging=never; else printf "%b\n" {2}; fi' \
       --preview-window=down:6:wrap
   ) || return
 

@@ -28,10 +28,10 @@ if command -v eza >/dev/null 2>&1; then
   alias ls='eza -l'
   alias la='eza -la'
 else
-  alias ls='ls -lh --color=auto'
-  alias la='ls -a'
+  alias ls='ls -l --color=auto'
+  alias la='ls -a --color=auto'
 fi
-alias lss='command ls'
+alias lss='command ls --color=auto'
 
 alias t='tmux new -s 1'
 alias tls='tmux ls'
