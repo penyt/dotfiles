@@ -9,7 +9,7 @@ mkdir -p $MYCFG/.zsh/plugins
   git clone https://github.com/zsh-users/zsh-syntax-highlighting $MYCFG/.zsh/plugins/zsh-syntax-highlighting
 
 
-[ -d $MYCFG/.zsh/plugins/zsh-completions] || \
+[ -d $MYCFG/.zsh/plugins/zsh-completions ] || \
   git clone https://github.com/zsh-users/zsh-completions $MYCFG/.zsh/plugins/zsh-completions
 
 

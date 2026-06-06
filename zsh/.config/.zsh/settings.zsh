@@ -57,6 +57,6 @@ chpwd() {
 
 # make fzf work properly 
 if command -v fzf >/dev/null 2>&1; then
-  source <(fzf --zsh)
+  source <(fzf --zsh) # shell integration
 fi
 
