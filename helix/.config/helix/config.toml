@@ -9,6 +9,7 @@ mouse = true
 bufferline = "always" # "multiple"
 end-of-line-diagnostics = "hint"
 color-modes = true
+# clipboard-provider = "pasteboard" # For macos
 
 [editor.statusline]
 left = ["mode", "spinner", "file-base-name"]
@@ -29,6 +30,9 @@ select = "underline"
 [editor.indent-guides]
 render = true
 character = "┊" # Some characters that work well: "▏", "┆", "┊"
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer"]
 
 
 
