@@ -1,24 +1,10 @@
-## zsh
+## Script INSTALL.sh
 
-Add following to ~/.zshrc
+The script will handle zsh plugins and minimal ~/.zshrc installation
 
-```shell
-export MYCFG="$HOME/.config"
-# SOURCE
-[[ -f "$MYCFG/.zsh/settings.zsh" ]] && source "$MYCFG/.zsh/settings.zsh"
-[[ -f "$MYCFG/.zsh/aliases.zsh" ]] && source "$MYCFG/.zsh/aliases.zsh"
-[[ -f "$HOME/.secretenv.zsh" ]] && source "$HOME/.secretenv.zsh"
-[[ -f "$MYCFG/.zsh/cmdmenu.zsh" ]] && source "$MYCFG/.zsh/cmdmenu.zsh"
-# END OF SOURCE
-
-```
-
-
-At the bottom of the `~/.zshrc`, add:
-
-```shell
-[[ -r "$MYCFG/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] &&
-  source "$MYCFG/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+To skip the copy part of ~/.zshrc, execute with the arg `nocp`
+```sh
+./INSTALL.sh nocp
 ```
 
 

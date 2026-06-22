@@ -17,6 +17,12 @@ config.font = wezterm.font 'CaskaydiaMono NF'
 config.color_scheme = 'Apple System Colors'
 
 
+config.set_environment_variables = {
+  PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+}
+
+-- config.default_prog = { "tmux" }
+
 -- ⬆ End of your config.
 
 

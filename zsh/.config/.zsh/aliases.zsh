@@ -40,11 +40,9 @@ alias topdf='soffice --headless --convert-to pdf'
 alias gp='git push'
 alias gb='git branch'
 alias c='clear'
-alias z='zed . '
-alias f='fresh . '
 alias utm='utmctl'
 alias ts='tailscale'
-alias hxc='hx ~/.config/helix'
+alias hxz='hx ~/.zshrc'
 
 brew-list() {
   echo "brew list --installed-as-dependency"

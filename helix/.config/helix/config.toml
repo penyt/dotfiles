@@ -44,3 +44,4 @@ display-color-swatches = true
 w = ":w"
 q = ":q"
 x = ":buffer-close"
+a = ":buffer-next"
