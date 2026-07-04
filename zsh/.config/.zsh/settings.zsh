@@ -17,6 +17,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # My default editor
 export EDITOR="hx"
 
+# Use truecolor
+export COLORTERM=truecolor
+
 # ======= PLUGINS =======
 # zsh-autosuggestions & zsh-syntax-highlighting & zsh-completions
 [[ -r "$MYCFG/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] &&
