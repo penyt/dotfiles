@@ -47,6 +47,7 @@ zle -N edit-command-line
 bindkey '^X^E' edit-command-line
 
 # cd tab choose
+fpath=(~/.config/.zsh/completions $fpath)
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
