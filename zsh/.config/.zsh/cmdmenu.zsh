@@ -1,3 +1,5 @@
+# This tool will read ~/.config/cmdmenu/commands.sh
+
 cmdmenu() {
   local file first label category selected cmd_escaped cmd
 
@@ -124,3 +126,7 @@ cmdmenu() {
 
 zle -N cmdmenu
 bindkey '^G' cmdmenu
+
+
+
+# echo "cmdmenu loaded"

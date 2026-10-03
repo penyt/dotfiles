@@ -39,7 +39,8 @@ set softtabstop=4
 set smartindent
 set autoindent
 set expandtab   " tab -> space
-
+set list
+set listchars=tab:│\ ,trail:·
 
 " ===== File Explore =====
 let g:netrw_liststyle = 3 " tree
@@ -50,6 +51,10 @@ let g:netrw_sort_by = 'name'
 let g:netrw_sort_direction = 'normal'
 let g:netrw_treeview = 2
 let g:netrw_winsize = 25
+set wildignore+=.swp,.swo,*~
+set wildignore+=.DS_Store
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\(DS_Store\|_*\.sw[op]\)$'
+      \ . ',.*~$'
 
 " Cleanup netrw buffer
 " autocmd BufLeave * if &filetype ==# 'netrw' | close | endif

@@ -15,22 +15,22 @@ setopt hist_verify
 export PATH="$HOME/.local/bin:$PATH"
 
 # My default editor
-export EDITOR="hx"
+# export EDITOR="hx"
 
 # Use truecolor
 export COLORTERM=truecolor
 
 # ======= PLUGINS =======
 # zsh-autosuggestions & zsh-syntax-highlighting & zsh-completions
-[[ -r "$MYCFG/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] &&
-  source "$MYCFG/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[[ -r "${0:A:h}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] &&
+  source "${0:A:h}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-# Actually no need here. Already added in the bottom of ~/.zshrc
-[[ -r "$MYCFG/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] &&
-  source "$MYCFG/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# Actually no need here. Already added in the bottom of entry.zsh
+# [[ -r "${0:A:h}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] &&
+#  source "${0:A:h}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-if [[ -d "$MYCFG/.zsh/zsh-completions/src" ]]; then
-  fpath=("$MYCFG/.zsh/zsh-completions/src" $fpath)
+if [[ -d "${0:A:h}/plugins/zsh-completions/src" ]]; then
+  fpath=("${0:A:h}/plugins/zsh-completions/src" $fpath)
 fi
 # =======================
 
@@ -64,3 +64,6 @@ if command -v fzf >/dev/null 2>&1; then
   source <(fzf --zsh) # shell integration
 fi
 
+
+
+# echo "settings loaded"

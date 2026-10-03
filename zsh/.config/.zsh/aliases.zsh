@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# Here are aliases define by myself
+# Here are aliases defined by myself
 # docker
 alias dps='docker ps --format="\nNAME 【{{.Names}}】\n - STATUS   {{.Status}}\n - IMAGE    {{.Image}}\n - ID　  {{.ID}}\n - COMMAND  {{.Command}}\n - CREATED  {{.CreatedAt}}\n - PORTS    {{.Ports}}" '
 alias dup='docker compose up -d'
@@ -76,3 +76,6 @@ gac() {
   return 2
 }
 
+
+
+# echo "aliases loaded"
