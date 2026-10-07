@@ -6,9 +6,13 @@ local keymap = vim.keymap.set
 -- =     Basics     =
 -- ==================
 keymap('n', '<leader>w', ':w<CR>', { desc = "Write",})  -- write
-keymap('n', '<leader>q', ':q<CR>', { desc = "Quit",})  -- quit
+keymap('n', '<leader>q', ':qa<CR>', { desc = "Quit",})  -- quit
 
 keymap("i", "jk", "<Esc>", { desc = "Exit insert mode",}) -- ESC, speed: see timeoutlen
+
+-- yank
+vim.keymap.set("n", "Y", '"+yy', { desc = "Yank line to clipboard" })
+vim.keymap.set("v", "Y", '"+y', { desc = "Yank selection to clipboard" })
 
 -- file explorer (nvim-tree)
 keymap("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle nvim-tree",})

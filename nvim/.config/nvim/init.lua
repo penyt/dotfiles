@@ -16,16 +16,12 @@ vim.opt.number      = true
 vim.opt.rnu         = true
 vim.opt.timeoutlen  = 500
 vim.opt.mouse       = "a"
-vim.opt.clipboard   = "unnamed" -- os clipboard
+vim.g.clipboard     = "osc52"
+-- vim.opt.clipboard   = "unnamed" -- os clipboard
 vim.opt.signcolumn  = "yes"
 -- vim.opt.ttimeoutlen = 50
--- vim.opt.whichwrap:append("h") -- go to next/prev line by h
--- vim.opt.whichwrap:append("l") -- go to next/prev line by j
--- vim.opt.whichwrap:append("<") -- go to next/prev line by <-
--- vim.opt.whichwrap:append(">") -- go to next/prev line by ->
--- vim.opt.whichwrap:append("[")
--- vim.opt.whichwrap:append("]")
 vim.opt.whichwrap:append("h,l,<,>,[,]")
+vim.opt.sessionoptions:remove("blank")
 vim.opt.showmode    = false      -- prevent mode words show under statusline (lualine)
 vim.opt.pumborder   = "double"   -- floating window's border (none/single/double/rounded/solid/shadow)
 vim.opt.winborder   = "double"   -- window's border
@@ -76,7 +72,7 @@ MiniIcons.mock_nvim_web_devicons ()          -- icons can be used by nvim-tree
 require("mini.completion" ).setup()          -- completion
 require("mini.bufremove"  ).setup()          -- buffer remove
 require("mini.indentscope").setup( require("plugins.mini_indentscope"))  -- indent highlight
-require("mini.starter"    ).setup()  -- start screen
+require("mini.starter"    ).setup( require("plugins.mini_starter"    ))  -- start screen
 require("mini.sessions"   ).setup( require("plugins.mini_sessions"   ))  -- sessions
 require("mini.pick"       ).setup()          -- picker
 

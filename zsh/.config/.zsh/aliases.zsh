@@ -23,6 +23,8 @@ alias so="source ~/.zshrc"
 alias bat="bat --paging=never"
 alias fbat="fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 vim"
 alias con="container"
+alias nv="nvim"
+alias n="nvim"
 
 if command -v eza >/dev/null 2>&1; then
   alias ls='eza -l'

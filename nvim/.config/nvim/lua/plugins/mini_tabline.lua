@@ -20,6 +20,11 @@ local MiniTabline = require("mini.tabline")
 
 return {
   format = function(buf_id, label)
+
+    if label:match("^NvimTree_%d+$") then -- don't show nvim-tree empty buffer
+      return ""
+    end
+
     local suffix = vim.bo[buf_id].modified and "◉  " or ""
     return MiniTabline.default_format(buf_id, label) .. suffix
   end,
