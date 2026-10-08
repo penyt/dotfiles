@@ -11,12 +11,12 @@ source "$HOME/.config/.zsh/entry.zsh"
 
 The script will handle zsh plugins installation, run:
 ```sh
-./INSTALL.sh
+./plugz
 ```
 
 To update plugins, run:
 ```sh
-./INSTALL.sh update
+./plugz update
 ```
 
 

@@ -2,7 +2,9 @@
 
 # In this file, these are settings that added manually.
 
-# history setup
+###########
+# History #
+###########
 HISTFILE=$HOME/.zsh_history
 SAVEHIST=10000
 HISTSIZE=10000
@@ -11,7 +13,24 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
-# Common usage
+# history prefix search
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+# bindkey '^[[A' up-line-or-beginning-search   # ↑ arrow key
+# bindkey '^[[B' down-line-or-beginning-search # ↓ arrow key
+for keymap in emacs viins; do
+  bindkey -M "$keymap" '\e[A' up-line-or-beginning-search
+  bindkey -M "$keymap" '\e[B' down-line-or-beginning-search
+  bindkey -M "$keymap" '\eOA' up-line-or-beginning-search
+  bindkey -M "$keymap" '\eOB' down-line-or-beginning-search
+done
+
+
+##########
+# Common #
+##########
+# commonly used path
 export PATH="$HOME/.local/bin:$PATH"
 
 # My default editor
@@ -20,34 +39,30 @@ export PATH="$HOME/.local/bin:$PATH"
 # Use truecolor
 export COLORTERM=truecolor
 
-# ======= PLUGINS =======
-# zsh-autosuggestions & zsh-syntax-highlighting & zsh-completions
+
+###########
+# PLUGINS #
+###########
+# zsh-autosuggestions
 [[ -r "${0:A:h}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] &&
   source "${0:A:h}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-# Actually no need here. Already added in the bottom of entry.zsh
-# [[ -r "${0:A:h}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] &&
-#  source "${0:A:h}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# zsh-syntax-highlighting: already added in the bottom of entry.zsh
 
+# zsh-completions
 if [[ -d "${0:A:h}/plugins/zsh-completions/src" ]]; then
   fpath=("${0:A:h}/plugins/zsh-completions/src" $fpath)
 fi
-# =======================
 
-# history prefix search
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey '^[[A' up-line-or-beginning-search   # ↑ arrow key
-bindkey '^[[B' down-line-or-beginning-search # ↓ arrow key
-
+##########
+# Others #
+##########
 # Open buffer line in editor
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line
 
 # cd tab choose
-fpath=(~/.config/.zsh/completions $fpath)
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
@@ -57,7 +72,6 @@ _comp_options+=(globdots) # include hidden files in completion
 chpwd() {
   ls
 }
-
 
 # make fzf work properly 
 if command -v fzf >/dev/null 2>&1; then

@@ -11,23 +11,6 @@ source "${0:A:h}/cmdmenu.zsh"
 
 
 
-alias vm="~/scripts/vm.sh"
-alias vmco="~/scripts/vmco.sh"
-
-
-# === Added for Tailscale CLI ===
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
-# ===============================
-
-
-
-# === Added for go tour ===
-export PATH="$PATH:$(go env GOPATH)/bin"
-# =========================
-
-
-
-
 # SOURCE for specifically syntax-hightlighting
 [[ -r "${0:A:h}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] &&
   source "${0:A:h}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

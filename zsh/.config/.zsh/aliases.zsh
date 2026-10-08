@@ -1,11 +1,34 @@
 #!/usr/bin/env zsh
 # Here are aliases defined by myself
-# docker
+
+##########
+# Docker #
+##########
 alias dps='docker ps --format="\nNAME 【{{.Names}}】\n - STATUS   {{.Status}}\n - IMAGE    {{.Image}}\n - ID　  {{.ID}}\n - COMMAND  {{.Command}}\n - CREATED  {{.CreatedAt}}\n - PORTS    {{.Ports}}" '
 alias dup='docker compose up -d'
 alias dup-re='docker compose up -d --force-recreate'
 # get inside the container
 alias execin='echo "sudo docker exec -it XXX /bin/sh"'
+
+########################
+# Cross platform tools #
+########################
+alias c='clear'
+alias so="source ~/.zshrc"
+alias bat="bat --paging=never"
+alias fbat="fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 vim"
+alias nv="nvim"
+alias n="nvim"
+
+# eza
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza -l'
+  alias la='eza -la'
+else
+  alias ls='ls -l --color=auto'
+  alias la='ls -a --color=auto'
+fi
+alias lss='command ls --color=auto'
 
 # change permission
 alias 775='sudo chmod -R 775 /home/ubuntu/docker/'
@@ -16,35 +39,23 @@ alias isubuntu='sudo chown -R ubuntu:ubuntu /home/ubuntu/docker/'
 # print the command used: echo -e "\n ▰▰▰▰▰▰ COMMAND: ▰▰▰▰▰▰"
 alias seeport='sudo lsof -i -P -n && echo -e "\n ▰▰▰▰▰▰ COMMAND: sudo lsof -i -P -n ▰▰▰▰▰▰"'
 
-###########################
-# about all kind of tools #
-###########################
-alias so="source ~/.zshrc"
-alias bat="bat --paging=never"
-alias fbat="fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 vim"
-alias con="container"
-alias nv="nvim"
-alias n="nvim"
-
-if command -v eza >/dev/null 2>&1; then
-  alias ls='eza -l'
-  alias la='eza -la'
-else
-  alias ls='ls -l --color=auto'
-  alias la='ls -a --color=auto'
-fi
-alias lss='command ls --color=auto'
-
 alias t='tmux new -s 1'
 alias tls='tmux ls'
 alias tk='tmux kill-server'
-alias topdf='soffice --headless --convert-to pdf'
-alias gp='git push'
-alias gb='git branch'
-alias c='clear'
-alias utm='utmctl'
+
 alias ts='tailscale'
-alias hxz='hx ~/.zshrc'
+
+#######################
+# OS/devices specific #
+#######################
+alias vm="~/scripts/vm.sh"
+alias vmco="~/scripts/vmco.sh"
+alias topdf='soffice --headless --convert-to pdf'
+alias con="container"
+alias utm='utmctl'
+
+# Added for Tailscale CLI
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 brew-list() {
   echo "brew list --installed-as-dependency"
@@ -54,13 +65,12 @@ brew-list() {
   echo "brew uses --installed APP"
 }
 
+#######
+# Git #
+#######
+alias gp='git push'
+alias gb='git branch'
 
-#gac() {
-#  git add .
-#  echo -n "💿 Enter commit message: "
-#  read msg
-#  git commit -m "$msg"
-#}
 gac() {
   if [ "$#" -eq 0 ]; then
     git add .
