@@ -1,6 +1,10 @@
 local miniclue = require("mini.clue")
 
 return {
+  window = {
+    delay = 300,
+  },
+
   triggers = {
     -- Leader triggers
     { mode = { "n", "x" }, keys = "<Leader>" },

@@ -54,3 +54,21 @@ install_plugin() {
 install_plugin "zsh-autosuggestions" "https://github.com/zsh-users/zsh-autosuggestions"
 install_plugin "zsh-syntax-highlighting" "https://github.com/zsh-users/zsh-syntax-highlighting"
 install_plugin "zsh-completions" "https://github.com/zsh-users/zsh-completions"
+install_plugin "powerlevel10k" "https://github.com/romkatv/powerlevel10k"
+
+
+
+# Create ~/.zshrc and add Powerlevel10k (install only)
+if [ "$UPDATE" -eq 0 ]; then
+  if [ ! -f "$HOME/.zshrc" ]; then
+    touch "$HOME/.zshrc"
+    echo "Created ~/.zshrc"
+  fi
+
+  if ! grep -Fq 'powerlevel10k.zsh-theme' "$HOME/.zshrc"; then
+    echo 'source "$HOME/.config/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme"' >> "$HOME/.zshrc"
+    echo "Added Powerlevel10k to ~/.zshrc"
+  else
+    echo "~/.zshrc unchanged"
+  fi
+fi

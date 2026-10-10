@@ -1,19 +1,23 @@
+## Usage
 
-## Source
-Add to the bottom of ~/.zshrc
+### Process
+1. (In bash) Install zsh, stow
+2. Stow zsh config
+3. Run `./plugz`
+    - 4 plugins will be installed
+    - `~/.zshrc` will be created with one line `source "$HOME....10k.zsh-theme"`
+4. Change default shell `chsh -s $(which zsh)`
+5. Restart the (ssh) shell
+    - p10k configure should pop up after new shell started
+6. Finish configuration (In zsh)
+7. Add to the bottom of ~/.zshrc
 ```sh
 # ======================= My config entry =======================
 source "$HOME/.config/.zsh/entry.zsh"
 # ============= EOF (below is added by other tools) =============
 ```
 
-## Script INSTALL.sh
-
-The script will handle zsh plugins installation, run:
-```sh
-./plugz
-```
-
+### Update plugins
 To update plugins, run:
 ```sh
 ./plugz update
@@ -22,15 +26,6 @@ To update plugins, run:
 
 ---
 ## More tools
-
-### Install p10k
-
-Link: https://github.com/romkatv/powerlevel10k#manual
-
-```sh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
-```
 
 
 ### Install fzf
@@ -70,3 +65,6 @@ sudo add-apt-repository ppa:maveonair/helix-editor
 sudo apt update
 sudo apt install helix
 ```
+
+
+

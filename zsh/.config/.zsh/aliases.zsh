@@ -57,6 +57,9 @@ alias utm='utmctl'
 # Added for Tailscale CLI
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
+# Netbird
+alias net="netbird up"
+
 brew-list() {
   echo "brew list --installed-as-dependency"
   echo "brew list --installed-on-request"

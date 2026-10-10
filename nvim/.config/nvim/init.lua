@@ -32,15 +32,16 @@ vim.o.cmdheight     = 0          -- tiny-cmdline required
 -- =     Plugins     =
 -- ===================
 vim.pack.add ({
-  { src = "https://github.com/neovim/nvim-lspconfig" },        -- lsp default config
-  { src = "https://github.com/mason-org/mason.nvim" },         -- lsp install manager
-  { src = "https://github.com/nvim-tree/nvim-tree.lua" },      -- tree file explorer
-	{ src = "https://github.com/nvim-lualine/lualine.nvim" },    -- lualine
-  { src = "https://github.com/rachartier/tiny-cmdline.nvim" }, -- center cmdline
-  { src = "https://github.com/nvim-mini/mini.nvim" },          -- mini.nvim
+  "https://github.com/neovim/nvim-lspconfig" ,          -- lsp default config
+  "https://github.com/mason-org/mason.nvim" ,           -- lsp install manager
+  "https://github.com/nvim-tree/nvim-tree.lua" ,        -- tree file explorer
+	"https://github.com/nvim-lualine/lualine.nvim" ,      -- lualine
+  "https://github.com/rachartier/tiny-cmdline.nvim" ,   -- center cmdline
+  "https://github.com/nvim-mini/mini.nvim" ,            -- mini.nvim
+  "https://github.com/MeanderingProgrammer/render-markdown.nvim",  -- markdown
 })
 
--- vim.pack.del( {"nui.nvim"} )
+-- vim.pack.del( {"nvim-treesitter"} )
 
 
 -- =============================================
@@ -76,6 +77,8 @@ require("mini.starter"    ).setup( require("plugins.mini_starter"    ))  -- star
 require("mini.sessions"   ).setup( require("plugins.mini_sessions"   ))  -- sessions
 require("mini.pick"       ).setup()          -- picker
 
+-- ☁︎  "render-markdown.nvim"
+require("render-markdown" ).setup( require("plugins.render_markdown" ))
 
 require("keymaps")      -- "keymaps.lua"
 require("indentline")   -- "indentline.lua": add indentation lines
