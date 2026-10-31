@@ -19,6 +19,7 @@ alias bat="bat --paging=never"
 alias fbat="fzf --preview 'bat --style=numbers --color=always {}' | xargs -n 1 vim"
 alias nv="nvim"
 alias n="nvim"
+alias python='python3'
 
 # eza
 if command -v eza >/dev/null 2>&1; then

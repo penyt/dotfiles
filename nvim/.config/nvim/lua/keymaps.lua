@@ -5,11 +5,14 @@ local keymap = vim.keymap.set
 -- ==================
 -- =     Basics     =
 -- ==================
+-- editor
 keymap('n', '<leader>w', ':w<CR>',  { desc = "Write" })  -- write
 keymap('n', '<leader>q', ':qa<CR>', { desc = "Quit"  })  -- quit
 keymap('n', '<leader>a', 'ggVG',    { desc = "Select all (like ctrl+a)" })  -- quit
 
 keymap("i", "jk", "<Esc>", { desc = "Exit insert mode" }) -- ESC, speed: see timeoutlen
+keymap('n', '<leader>r', ':set wrap!<CR>', { desc = "Toggle Wrap" })
+
 
 -- yank
 vim.keymap.set("n", "Y", '"+yy', { desc = "Yank line to OS clipboard" })
@@ -39,6 +42,7 @@ keymap("n", "<C-h>", "<C-w>h", { desc = "Focus left windows" })
 keymap("n", "<C-j>", "<C-w>j", { desc = "Focus down window" })
 keymap("n", "<C-k>", "<C-w>k", { desc = "Focus up window" })
 keymap("n", "<C-l>", "<C-w>l", { desc = "Focus right window" })
+keymap("n", "<C-;>", "<C-w>p", { desc = "Focus previous window" })
 
 -- resize windows (panes)
 keymap("n", "<C-Left>",  "<cmd>vertical resize -2<CR>", { desc = "Decrease width" })
@@ -69,18 +73,39 @@ keymap("n", "<leader>m", ":lua Mini", { desc = "Mini lua cmd (:lua Mini)" })
 -- mini.pick
 vim.cmd([[cabbrev P Pick]])                  -- picker: make :P acts as :Pick
 keymap("n", "<leader>pp", ":Pick ", { desc = "Pick cmd (mini)" })   -- picker: bind <leader>pp to acts as :Pick
-keymap("n", "<leader>pb", ":Pick buffers<CR>", { desc = "Pick buffers" })
-keymap("n", "<leader>pf", ":Pick files<CR>",   { desc = "Pick files"   })
+keymap("n", "<leader>pb", ":Pick buffers<CR>",      { desc = "Pick buffers"    })
+keymap("n", "<leader>pf", ":Pick files<CR>",        { desc = "Pick files"      })
+keymap("n", "<leader>pc", ":Pick cheatsheet<CR>",   { desc = "Pick cheatsheet" })
 
 -- mini.sessions
-keymap("n", "<leader>ss", MiniSessions.select, { desc = "Select session" })
-keymap("n", "<leader>sw", MiniSessions.write,  { desc = "Save session"   })
-keymap("n", "<leader>sl", MiniSessions.read,   { desc = "Load session"   })
+local function save_session()
+  if vim.v.this_session ~= "" then
+    MiniSessions.write()
+    return
+  end
+
+  vim.ui.input({ prompt = "Session name: " }, function(name)
+    if name and name ~= "" then
+      MiniSessions.write(name)
+    end
+  end)
+end
+
+keymap("n", "<leader>ss", function()
+  MiniSessions.select("read")
+end, { desc = "Select session" })
+
+keymap("n", "<leader>sw", save_session, {
+  desc = "Save session",
+})
 
 
+-- mini.diff
+local MiniDiff = require("mini.diff")
+keymap("n", "gz", MiniDiff.toggle_overlay, { desc = "Toggle Git diff overlay" })
 
-
-
+-- mini.files
+-- keymap("n", "<leader>f", ":lua MiniFiles.open()<CR>", { desc = "Open mini.files window" })
 
 
 -- Open floating terminal

@@ -1,14 +1,14 @@
 -- =============================
 -- =     Theme & Leader key    =
 -- =============================
-vim.g.mapleader     = " "            -- LeaderKey: space
-vim.opt.background  = "dark"      -- dark mode
+vim.g.mapleader     = " "        -- LeaderKey: space
+vim.opt.background  = "dark"     -- dark mode
 vim.cmd.colorscheme("retrobox")  -- ~gruvbox
 
 -- ==================
 -- =     Basics     =
 -- ==================
-vim.opt.showmatch   = true      -- check )]} matching
+vim.opt.showmatch   = true     -- check )]} matching
 vim.opt.cursorline  = true     -- horizontal
 vim.opt.scrolloff   = 8
 vim.opt.showtabline = 2
@@ -24,7 +24,12 @@ vim.opt.whichwrap:append("h,l,<,>,[,]")
 vim.opt.sessionoptions:remove("blank")
 vim.opt.showmode    = false      -- prevent mode words show under statusline (lualine)
 vim.opt.pumborder   = "double"   -- floating window's border (none/single/double/rounded/solid/shadow)
-vim.opt.winborder   = "double"   -- window's border
+-- vim.opt.winborder   = "double"   -- window's border
+vim.opt.winborder = {
+  "┏", "━", "┓", "┃",
+  "┛", "━", "┗", "┃",
+}
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#80A6F7", bold = true })  -- window's border color
 vim.o.cmdheight     = 0          -- tiny-cmdline required
 
 
@@ -38,6 +43,7 @@ vim.pack.add ({
 	"https://github.com/nvim-lualine/lualine.nvim" ,      -- lualine
   "https://github.com/rachartier/tiny-cmdline.nvim" ,   -- center cmdline
   "https://github.com/nvim-mini/mini.nvim" ,            -- mini.nvim
+  "https://github.com/lukas-reineke/indent-blankline.nvim",        -- indent rainbow
   "https://github.com/MeanderingProgrammer/render-markdown.nvim",  -- markdown
 })
 
@@ -72,16 +78,23 @@ require("mini.icons"      ).setup()          -- icons
 MiniIcons.mock_nvim_web_devicons ()          -- icons can be used by nvim-tree
 require("mini.completion" ).setup()          -- completion
 require("mini.bufremove"  ).setup()          -- buffer remove
+require("mini.diff"       ).setup( require("plugins.mini_diff"       ))  -- diff hunks
 require("mini.indentscope").setup( require("plugins.mini_indentscope"))  -- indent highlight
 require("mini.starter"    ).setup( require("plugins.mini_starter"    ))  -- start screen
 require("mini.sessions"   ).setup( require("plugins.mini_sessions"   ))  -- sessions
-require("mini.pick"       ).setup()          -- picker
+-- require('mini.files'      ).setup( )
+require("mini.pick"       ).setup( require("plugins.mini_pick"       ))  -- picker
+require("mini.hipatterns" ).setup( require("plugins.hi_patterns"     ))          -- highlight TODO FIXME NOTE ...
+
+
+-- ☁︎  "indent-blankline.nvim"
+require("ibl" ).setup( require("plugins.indent_blankline" ))
 
 -- ☁︎  "render-markdown.nvim"
 require("render-markdown" ).setup( require("plugins.render_markdown" ))
 
 require("keymaps")      -- "keymaps.lua"
-require("indentline")   -- "indentline.lua": add indentation lines
+require("indent")   -- "indentline.lua": add indentation lines
 
 
 -- ===============

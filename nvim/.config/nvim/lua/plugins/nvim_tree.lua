@@ -98,13 +98,51 @@ local function my_on_attach(bufnr)
 end
 
 
+local events = require("nvim-tree.api").events
+events.subscribe(events.Event.TreeRendered, function(data)
+  if not vim.api.nvim_win_is_valid(data.winnr) then return end
+  vim.api.nvim_set_option_value("signcolumn", "no", { win = data.winnr, })
+  vim.api.nvim_set_option_value("statuscolumn", "%#NvimTreeNormalFloat# ", { win = data.winnr, })
+  vim.api.nvim_set_option_value(
+    "winhighlight",
+    "LineNr:NvimTreeNormalFloat,CursorLineNr:NvimTreeNormalFloat",
+    { win = data.winnr }
+  )
+end)
 
 
 return {
   on_attach = my_on_attach,
-
   view = {
-    width = 25,
+    width = {
+      min = 20,
+      max = function()
+        return math.max(20, vim.o.columns - 5)
+      end,
+      padding = 5,
+    },
+    float = {
+      enable = true,
+      quit_on_focus_loss = false,
+      open_win_config = function()
+      local margin = 2
+        return {
+          relative = "editor",
+          anchor = "NE",
+          width = 1,
+          height = math.max(1, vim.o.lines - margin * 2 - 4),
+          row = margin,
+          col = (vim.o.columns - margin),  -- on right
+          -- col = 1,  -- on left
+        }
+      end,
+    },
+  },
+
+  actions = {  -- when open file from nvim-tree, close nvim-tree itself
+    open_file = {
+      quit_on_open = true,
+    },
   },
 
   renderer = {
