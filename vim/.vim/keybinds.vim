@@ -8,7 +8,7 @@ nnoremap <leader>e :Lexplore<CR>
 
 " Write & Save
 nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
+nnoremap <leader>q :qa<CR>
 nnoremap <leader>x :bdelete<CR>
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>m :bprevious<CR>

@@ -1,7 +1,7 @@
 " --- Basic options ---
 
 " ===== Theme =====
-autocmd vimenter * ++nested colorscheme gruvbox
+" autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
 
 

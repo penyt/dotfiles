@@ -3,7 +3,6 @@
 " Installation: https://github.com/junegunn/vim-plug?tab=readme-ov-file#installation
 
 call plug#begin()
-Plug 'morhetz/gruvbox'                   " https://github.com/morhetz/gruvbox
 Plug 'itchyny/lightline.vim'             " https://github.com/itchyny/lightline.vim
 Plug 'mengelbrecht/lightline-bufferline' " https://github.com/mengelbrecht/lightline-bufferline
 Plug 'junegunn/fzf'                      " https://github.com/junegunn/fzf
@@ -30,5 +29,4 @@ source ~/.vim/plugin-lsp.vim
 source ~/.vim/plugin-indentLine.vim
 " source ~/.vim/plugin-vim-commentary.vim
 " source ~/.vim/notice.vim
-
 

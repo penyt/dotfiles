@@ -23,14 +23,14 @@ vim.opt.signcolumn  = "yes"
 vim.opt.whichwrap:append("h,l,<,>,[,]")
 vim.opt.sessionoptions:remove("blank")
 vim.opt.showmode    = false      -- prevent mode words show under statusline (lualine)
+vim.o.cmdheight     = 0          -- tiny-cmdline required
 vim.opt.pumborder   = "double"   -- floating window's border (none/single/double/rounded/solid/shadow)
 -- vim.opt.winborder   = "double"   -- window's border
-vim.opt.winborder = {
+vim.opt.winborder   = {
   "┏", "━", "┓", "┃",
   "┛", "━", "┗", "┃",
 }
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#80A6F7", bold = true })  -- window's border color
-vim.o.cmdheight     = 0          -- tiny-cmdline required
 
 
 -- ===================
@@ -93,7 +93,7 @@ require("ibl" ).setup( require("plugins.indent_blankline" ))
 -- ☁︎  "render-markdown.nvim"
 require("render-markdown" ).setup( require("plugins.render_markdown" ))
 
-require("keymaps")      -- "keymaps.lua"
+require("keymaps")  -- "keymaps.lua"
 require("indent")   -- "indentline.lua": add indentation lines
 
 
@@ -102,17 +102,21 @@ require("indent")   -- "indentline.lua": add indentation lines
 -- ===============
 
 -- LSP config 
-require("plugins.lspconfig") -- "lua/plugins/lspconfig.lua"
+require("plugins.lspconfig") -- Additional lsp config: "lua/plugins/lspconfig.lua"
 
 -- let error message appear behind the line
 vim.diagnostic.config({
-	virtual_text = { spacing = 2 },
+  virtual_text = { spacing = 2 },
 })
 
 -- LSP enable
-vim.lsp.enable({"lua_ls"})
-vim.lsp.enable({"pyright"})
-vim.lsp.enable({"yaml-language-server"})
+vim.lsp.enable({
+  "lua_ls",
+  "pyright",
+  "yamlls",  -- yaml-language-server
+  "taplo",
+  "vimls",   -- vim-language-server
+})
 
 
 

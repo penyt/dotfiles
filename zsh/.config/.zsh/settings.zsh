@@ -2,9 +2,9 @@
 
 # In this file, these are settings that added manually.
 
-###########
-# History #
-###########
+###############
+#   History   #
+###############
 HISTFILE=$HOME/.zsh_history
 SAVEHIST=10000
 HISTSIZE=10000
@@ -27,22 +27,24 @@ for keymap in emacs viins; do
 done
 
 
-##########
-# Common #
-##########
+##############
+#   Common   #
+##############
 # commonly used path
 export PATH="$HOME/.local/bin:$PATH"
 
 # My default editor
 # export EDITOR="hx"
+export EDITOR="$(command -v nvim || command -v vim || command -v vi)"
+export VISUAL="$EDITOR"
 
 # Use truecolor
 export COLORTERM=truecolor
 
 
-###########
-# PLUGINS #
-###########
+###############
+#   PLUGINS   #
+###############
 # zsh-autosuggestions
 [[ -r "${0:A:h}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] &&
   source "${0:A:h}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
@@ -54,29 +56,61 @@ if [[ -d "${0:A:h}/plugins/zsh-completions/src" ]]; then
   fpath=("${0:A:h}/plugins/zsh-completions/src" $fpath)
 fi
 
-##########
-# Others #
-##########
+##############
+#   Others   #
+##############
 # Open buffer line in editor
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey '^X^E' edit-command-line
+bindkey '^X^E' edit-command-line   # Ctrl-x Ctrl-e
 
-# cd tab choose
+
+# Custom completions
+fpath=("$HOME/.config/.zsh/completions" $fpath)
+
+
+# cd tab choose & completion
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
 _comp_options+=(globdots) # include hidden files in completion
 
-# auto ls after cd
-chpwd() {
-  ls
-}
 
-# make fzf work properly 
+# auto ls after cd
+chpwd() { ls }
+
+
+# make fzf work properly
 if command -v fzf >/dev/null 2>&1; then
   source <(fzf --zsh) # shell integration
 fi
+
+
+# Atuin
+[[ -f "$HOME/.atuin/bin/env" ]] && source "$HOME/.atuin/bin/env"
+if command -v atuin >/dev/null 2>&1; then
+  eval "$(atuin init zsh --disable-up-arrow)"
+fi
+as() {
+  local selected
+  selected=$(
+    atuin scripts list |
+      awk '/^- / {
+        sub(/^- /, "")
+        sub(/ \[tags:.*$/, "")
+        sub(/[[:space:]]+$/, "")
+        print
+      }' |
+      fzf \
+        --height=40% \
+        --reverse \
+        --prompt="Atuin Scripts > " \
+        --preview="atuin scripts get {} | sed -n '/^script: |/,\$p' | sed '1d; s/^  //'" \
+        --preview-window='right:60%:wrap'
+  ) || return
+
+  [[ -n "$selected" ]] && atuin scripts run "$selected"
+}
 
 
 

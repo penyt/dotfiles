@@ -13,3 +13,6 @@ zsh/.config/.zsh/plugins/*
 
 # nvim
 nvim/.config/nvim/lua/not-use/*
+
+# exclude hammerspoon
+hammerspoon/

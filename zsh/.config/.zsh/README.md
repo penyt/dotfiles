@@ -1,7 +1,7 @@
 ## Usage
 
 ### Process
-1. (In bash) Install zsh, stow
+1. (In bash) Install `zsh, stow`
 2. Stow zsh config
 3. Run `./plugz`
     - 4 plugins will be installed
@@ -9,7 +9,7 @@
 4. Change default shell `chsh -s $(which zsh)`
 5. Restart the (ssh) shell
     - p10k configure should pop up after new shell started
-6. Finish configuration (In zsh)
+6. Finish configuration (it will enter zsh)
 7. Add to the bottom of ~/.zshrc
 ```sh
 # ======================= My config entry =======================

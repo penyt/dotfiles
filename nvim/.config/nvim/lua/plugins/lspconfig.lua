@@ -1,4 +1,4 @@
--- Additional lsp config.
+-- Additional lsp config
 
 -- lua_ls config
 -- vim.lsp.config("lua_ls", {

@@ -5,8 +5,6 @@ source "${0:A:h}/settings.zsh"
 # aliases
 source "${0:A:h}/aliases.zsh"
 
-# cmdmenu tool
-source "${0:A:h}/cmdmenu.zsh"
 
 
 

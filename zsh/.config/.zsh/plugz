@@ -69,6 +69,6 @@ if [ "$UPDATE" -eq 0 ]; then
     echo 'source "$HOME/.config/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme"' >> "$HOME/.zshrc"
     echo "Added Powerlevel10k to ~/.zshrc"
   else
-    echo "~/.zshrc unchanged"
+    echo -e "\033[33mUNCHANGED\033[0m ~/.zshrc already exist and p10k is configured"
   fi
 fi
