@@ -55,8 +55,6 @@ alias topdf='soffice --headless --convert-to pdf'
 alias con="container"
 alias utm='utmctl'
 
-# Added for Tailscale CLI
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # Netbird
 alias net="netbird up"
