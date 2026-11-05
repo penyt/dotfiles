@@ -32,6 +32,8 @@ local function open_float_term()
 
   if vim.bo[buf].buftype ~= "terminal" then
     vim.cmd("terminal")
+    -- :terminal marks the buffer as listed; hide it from :ls / bufferline
+    vim.bo[buf].buflisted = false
   end
 
   vim.cmd("startinsert")
