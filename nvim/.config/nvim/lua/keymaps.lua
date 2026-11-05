@@ -10,13 +10,13 @@ keymap('n', '<leader>w', ':w<CR>',  { desc = "Write" })  -- write
 keymap('n', '<leader>q', ':qa<CR>', { desc = "Quit"  })  -- quit
 keymap('n', '<leader>a', 'ggVG',    { desc = "Select all (like ctrl+a)" })  -- quit
 
-keymap("i", "jk", "<Esc>", { desc = "Exit insert mode" }) -- ESC, speed: see timeoutlen
+keymap("i", "hj", "<Esc>", { desc = "Exit insert mode" }) -- ESC, speed: see timeoutlen
 keymap('n', '<leader>r', ':set wrap!<CR>', { desc = "Toggle Wrap" })
 
 
 -- yank
-vim.keymap.set("n", "Y", '"+yy', { desc = "Yank line to OS clipboard" })
-vim.keymap.set("v", "Y", '"+y', { desc = "Yank selection to OS clipboard" })
+keymap("n", "Y", '"+yy', { desc = "Yank line to OS clipboard" })
+keymap("v", "Y", '"+y', { desc = "Yank selection to OS clipboard" })
 
 -- file explorer (nvim-tree)
 keymap("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle nvim-tree",})
@@ -25,6 +25,10 @@ keymap("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle nvi
 keymap("n", "<leader>cc", function()
   vim.o.cursorcolumn = not vim.o.cursorcolumn
 end, { desc = "Toggle cursor column" })
+
+
+-- 
+keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight", })
 
 
 -- =====================

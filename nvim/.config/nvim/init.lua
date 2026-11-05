@@ -44,6 +44,7 @@ vim.pack.add ({
   "https://github.com/rachartier/tiny-cmdline.nvim" ,   -- center cmdline
   "https://github.com/nvim-mini/mini.nvim" ,            -- mini.nvim
   "https://github.com/lukas-reineke/indent-blankline.nvim",        -- indent rainbow
+  "https://github.com/nvim-treesitter/nvim-treesitter-context",    -- function name on top
   "https://github.com/MeanderingProgrammer/render-markdown.nvim",  -- markdown
 })
 
@@ -86,12 +87,14 @@ require("mini.sessions"   ).setup( require("plugins.mini_sessions"   ))  -- sess
 require("mini.pick"       ).setup( require("plugins.mini_pick"       ))  -- picker
 require("mini.hipatterns" ).setup( require("plugins.hi_patterns"     ))          -- highlight TODO FIXME NOTE ...
 
+-- ☁︎  "nvim-treesitter-context"
+require("treesitter-context" ).setup( require("plugins.nvim_treesitter_context" ))
 
 -- ☁︎  "indent-blankline.nvim"
-require("ibl" ).setup( require("plugins.indent_blankline" ))
+require("ibl"                ).setup( require("plugins.indent_blankline" ))
 
 -- ☁︎  "render-markdown.nvim"
-require("render-markdown" ).setup( require("plugins.render_markdown" ))
+require("render-markdown"    ).setup( require("plugins.render_markdown" ))
 
 require("keymaps")  -- "keymaps.lua"
 require("indent")   -- "indentline.lua": add indentation lines
