@@ -5,6 +5,9 @@ source "${0:A:h}/settings.zsh"
 # aliases
 source "${0:A:h}/aliases.zsh"
 
+# nvm (lazy load)
+source "${0:A:h}/nvm.zsh"
+
 
 
 
